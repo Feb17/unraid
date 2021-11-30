@@ -1,0 +1,13 @@
+docker run -d \
+  --name qbittorrent \
+  --network=bridge \
+  --restart=always \
+  -e PUID=1000 \
+  -e PGID=100 \
+  -e WEB_PORT=9090 \
+  -e BT_PORT=56789 \
+  -p 9090:9090 -p 56789:56789/tcp -p 56789:56789/udp \
+  -v /mnt/user/appdata/qbittorrent/config:/config \
+  -v /mnt/user/appdata/qbittorrent/data:/data \
+  -v /mnt/remotes/Media:/downloads \
+  80x86/qbittorrent:4.3.5-alpine-3.13.5-amd64-full
