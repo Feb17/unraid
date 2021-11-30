@@ -1,15 +1,15 @@
 docker run \
-	--name EmbyServer \
-	--network=bridge \
-	--restart always \
-	-p '8096:8096' \
-	-p '8920:8920' \
-	-p '1900:1900/udp' \
-	-p '7359:7359/udp' \
-	-v /mnt/user/appdata/EmbyServer:/config \
-	-v /mnt/remotes/Media:/data \
-	-e TZ="Asia/Shanghai" \
-	-e UID=1000 \
-	-e GID=100 \
-	-e GIDLIST=100 \
-	lovechen/embyserver：latest
+ --network=bridge \
+ -p '8096:8096' \
+ -p '8920:8920' \
+ -p '1900:1900/udp' \
+ -p '7359:7359/udp' \
+ -v /mnt/user/appdata/EmbyServer/:/config \
+ -v /mnt/remotes/Media/:/data \
+ -e TZ="Asia/Shanghai" \
+ -e UID=1000 \
+ -e GID=100 \
+ -e GIDLIST=100 \
+ --restart always \
+ --name EmbyServer \
+ -d lovechen/embyserver:latest
